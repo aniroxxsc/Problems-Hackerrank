@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+void left_rotation(int n,int d,vector <int> arr){
+    int effective= d%n;
+    int arr2[arr.size()];
+    int temp;
+    for(int i=0;i<arr.size();i++){
+        int j=i-effective;
+        if(j<0){
+            j +=arr.size();
+        }
+        arr2[j]=arr[i];
+
+    }
+    for(int i=0;i<arr.size();i++){
+        cout<<arr2[i]<<" ";
+    }
+}
+int main(){
+    int n,d,temp;
+    int re[n];
+    cin >>n>>d;
+    vector <int> ar;
+    for(int i=0;i<n;i++){
+        cin>>temp;
+        ar.push_back(temp);
+    }
+    left_rotation(n,d, ar);
+    return 0;
+}
