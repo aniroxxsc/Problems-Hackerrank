@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int b,w,cost=0;
+        cin>>b>>w;
+        long long int bc,wc,z;
+        cin>>bc>>wc>>z;
+        if(bc>=wc+z){
+            cost = b*(wc+z) + w*(wc);
+        }
+        else if(wc>=bc+z){
+            cost = w*(bc+z) + b*(bc);
+        }
+        else{
+            cost= (b*bc)+(w*wc);
+        }
+        cout<<cost<<endl;
+        cost=0;
+    }
+    return 0;
+}
