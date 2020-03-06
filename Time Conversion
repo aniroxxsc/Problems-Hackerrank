@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*
+ * Complete the timeConversion function below.
+ */
+string timeConversion(string s) {
+    /*
+     * Write your code here.
+     */
+    string temp,temp1,temp2;
+    int num;
+    string ss;
+    if(s[0]=='1' && s[1] =='2' && s[8]=='P'){
+        ss = "12";
+        temp2 = s.substr(2,s.length()-4);
+        ss.append(temp2);  
+    }
+    else if(s[0]=='1' && s[1] =='2' && s[8]=='A'){
+        ss = "00";
+        temp2 = s.substr(2,s.length()-4);
+        ss.append(temp2);  
+    }
+    else if(s[8]=='P'){
+        temp = s.substr(0,2);
+        temp2 = s.substr(2,s.length()-4);
+        num = stoi(temp);
+        num = num+12;
+        ss = to_string(num);
+        ss.append(temp2);
+    }
+    else{
+        ss= s.substr(0,s.length()-2);
+    }
+    return ss;
+
+
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
